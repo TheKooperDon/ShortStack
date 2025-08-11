@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cable Fly - ShortStack Exercise Library</title>
+  <!-- React and ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <!-- Babel CDN for JSX support -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center text-[#222] font-sans">
+  <div class="w-full max-w-[430px] min-h-[90vh] bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col">
+    <header class="bg-gray-900 text-white p-4 text-center">
+      <h1 class="text-3xl font-bold">Short Stack</h1>
+      <nav class="flex justify-center gap-6 mt-2 flex-wrap">
+        <a href="../../index.html" class="hover:underline">Home</a>
+        <a href="../../logger.html" class="hover:underline">Log Workout</a>
+        <a href="../../profile.html" class="hover:underline">Profile</a>
+        <a href="../../library.html" class="hover:underline">Exercises</a>
+      </nav>
+    </header>
+
+    <main class="flex-1 p-6 flex flex-col">
+      <div id="root" class="w-full"></div>
+    </main>
+
+    <footer class="bg-gray-900 text-white text-center p-4">
+      <nav class="flex justify-center gap-4 mb-2 flex-wrap">
+        <a href="../../about.html" class="hover:underline">About</a>
+        <a href="../../settings.html" class="hover:underline">Settings</a>
+        <a href="../../export.html" class="hover:underline">Export</a>
+        <a href="../../testingFile.html" class="hover:underline">Testing</a>
+      </nav>
+      <p>&copy; 2025 Short Stack. Built with reps, sets, and love.</p>
+    </footer>
+  </div>
+
+  <!-- React exercise component -->
+  <script type="text/babel">
+    const { useState } = React;
+
+    function CableFlyExercise() {
+      const [activeTab, setActiveTab] = useState('overview');
+
+      const exerciseData = {
+        name: "Cable Fly",
+        category: "Chest",
+        equipment: ["Cable Machine", "Cable Attachments"],
+        primaryMuscles: ["Pectoralis Major (Chest)"],
+        secondaryMuscles: ["Anterior Deltoids (Front Shoulders)", "Triceps"],
+        difficulty: "Intermediate",
+        instructions: [
+          "Stand in the center of a cable machine with cables at chest height",
+          "Grasp the cable handles with your arms extended out to the sides",
+          "Take a step forward to create tension in the cables",
+          "With a slight bend in your elbows, bring your hands together in front of your chest",
+          "Squeeze your chest muscles as you bring your hands together",
+          "Slowly return to the starting position, feeling the stretch in your chest",
+          "Repeat for the desired number of repetitions"
+        ],
+        tips: [
+          "Keep your core engaged throughout the movement",
+          "Maintain a slight bend in your elbows throughout",
+          "Focus on squeezing your chest muscles, not just moving your arms",
+          "Don't let the cables pull your arms too far back",
+          "Keep your shoulders down and back"
+        ],
+        variations: [
+          "High Cable Fly (targets upper chest)",
+          "Low Cable Fly (targets lower chest)",
+          "Single Arm Cable Fly",
+          "Cable Fly with Rotation"
+        ],
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+      };
+
+      return (
+        <div className="w-full">
+          {/* Header */}
+          <div className="text-center mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <button 
+                onClick={() => window.history.back()}
+                className="text-blue-600 hover:text-blue-700"
+              >
+                ← Back
+              </button>
+              <h2 className="text-2xl font-bold text-gray-800">{exerciseData.name}</h2>
+              <div className="w-8"></div>
+            </div>
+            <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium inline-block">
+              {exerciseData.category}
+            </div>
+          </div>
+
+          {/* Exercise Image */}
+          <div className="mb-6">
+            <img 
+              src={exerciseData.image} 
+              alt={exerciseData.name}
+              className="w-full h-48 object-cover rounded-lg shadow-md"
+            />
+          </div>
+
+          {/* Tabs */}
+          <div className="flex border-b border-gray-200 mb-6">
+            {['overview', 'instructions', 'tips', 'variations'].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`flex-1 py-2 text-sm font-medium capitalize ${
+                  activeTab === tab 
+                    ? 'text-blue-600 border-b-2 border-blue-600' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="space-y-4">
+            {activeTab === 'overview' && (
+              <div>
+                <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                  <h3 className="font-semibold text-gray-800 mb-2">Quick Info</h3>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium">Difficulty:</span> {exerciseData.difficulty}</div>
+                    <div><span className="font-medium">Equipment:</span> {exerciseData.equipment.join(', ')}</div>
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-4 mb-4">
+                  <h3 className="font-semibold text-blue-800 mb-2">Muscles Targeted</h3>
+                  <div className="space-y-2 text-sm">
+                    <div><span className="font-medium text-blue-700">Primary:</span> {exerciseData.primaryMuscles.join(', ')}</div>
+                    <div><span className="font-medium text-blue-600">Secondary:</span> {exerciseData.secondaryMuscles.join(', ')}</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'instructions' && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-4">Step-by-Step Instructions</h3>
+                <div className="space-y-3">
+                  {exerciseData.instructions.map((instruction, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                        {index + 1}
+                      </div>
+                      <p className="text-gray-700">{instruction}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'tips' && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-4">Pro Tips</h3>
+                <div className="space-y-3">
+                  {exerciseData.tips.map((tip, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0">
+                        ✓
+                      </div>
+                      <p className="text-gray-700">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'variations' && (
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-4">Exercise Variations</h3>
+                <div className="space-y-3">
+                  {exerciseData.variations.map((variation, index) => (
+                    <div key={index} className="bg-gray-50 rounded-lg p-3">
+                      <p className="text-gray-800 font-medium">{variation}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<CableFlyExercise />);
+  </script>
+</body>
+</html> 
