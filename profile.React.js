@@ -16,6 +16,22 @@ function formatDateForDisplay(dateStr) {
   return `${parseInt(month)}/${parseInt(day)}/${year}`;
 }
 
+// utils
+function niceMax(x) {
+  if (!x || x <= 0) return 1000; // minimum 1k scale so it doesn't look weird
+  const p = Math.pow(10, Math.floor(Math.log10(x)));
+  const n = Math.ceil(x / p);
+  const nice = n <= 2 ? 2 * p : n <= 5 ? 5 * p : 10 * p;
+  return nice;
+}
+
+function formatShort(n) {
+  // 2275 -> "2.3k", 1000 -> "1k", 0 -> "0"
+  if (n === 0) return "0";
+  if (n >= 1000) return `${(n / 1000).toFixed(n % 1000 === 0 ? 0 : 1)}k`;
+  return `${n}`;
+}
+
 function Profile() {
   const [workouts, setWorkouts] = useState([]);
   const [firstName, setFirstName] = useState("");
@@ -123,8 +139,8 @@ function Profile() {
       const date = new Date(monday);
       date.setDate(monday.getDate() + i);
       
-      // Use MM/DD/YYYY format to match logger
-      const dateStr = date.toLocaleDateString();
+      // Use YYYY-MM-DD format to match internal storage
+      const dateStr = formatDateYYYYMMDD(date);
       
       // Find workout for this date
       const workout = workouts.find(w => w.date === dateStr);
@@ -197,6 +213,12 @@ function Profile() {
   const calendarData = generateCalendarData();
   const weightData = generateWeightData();
   const maxWeight = Math.max(...weightData.map(d => d.weight), 1);
+  
+  // Dynamic scale calculation
+  const weekly = generateWeightData();
+  const weeklyMax = Math.max(...weekly.map(d => d.weight), 0);
+  const yMax = niceMax(weeklyMax);
+  const ticks = Array.from({ length: 6 }, (_, i) => Math.round((yMax / 5) * i)); // 0..yMax
 
   // Add exerciseMap for workout type lookup
   const exerciseMap = {
@@ -538,45 +560,54 @@ function Profile() {
             {/* Weight Lifted Chart */}
             <div className="w-full max-w-xs mb-6">
               <div className="flex items-center justify-between mb-3">
-                <button
-                  onClick={() => navigateWeek('prev')}
-                  className="text-gray-400 hover:text-blue-600 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                <button onClick={() => navigateWeek('prev')} className="text-gray-400 hover:text-blue-600 transition-colors">
+                  {/* left chevron */}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                   </svg>
                 </button>
                 <h3 className="text-lg font-semibold">Weight Lifted</h3>
-                <button
-                  onClick={() => navigateWeek('next')}
-                  className="text-gray-400 hover:text-blue-600 transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                <button onClick={() => navigateWeek('next')} className="text-gray-400 hover:text-blue-600 transition-colors">
+                  {/* right chevron */}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5 15.75 12 8.25 19.5" />
                   </svg>
                 </button>
               </div>
+
               <p className="text-sm text-gray-600 text-center mb-3">{getWeekRange(currentWeek)}</p>
-              <div className="flex items-end justify-between h-32 gap-1">
+
+              {/* Simple bar chart */}
+              <div className="h-40 flex items-end justify-between gap-1">
                 {weightData.map((day, idx) => {
-                  const heightPercent = day.weight > 0 ? Math.max((day.weight / maxWeight) * 100, 4) : 4;
-                  console.log(`Bar ${idx}: ${day.day}, weight: ${day.weight}, maxWeight: ${maxWeight}, heightPercent: ${heightPercent}%`);
+                  // Calculate height in pixels using 10k as max scale
+                  const maxHeight = 160; // h-40 = 160px
+                  const scaleMax = 10000; // 10k lbs
+                  const heightPixels = day.weight > 0
+                    ? Math.max((day.weight / scaleMax) * maxHeight, 8)
+                    : 8;
+
                   return (
-                    <div key={idx} className="flex flex-col items-center flex-1">
-                      <div 
-                        className="w-full bg-green-500 rounded-t transition-all duration-300 hover:bg-green-600"
-                        style={{ 
-                          height: `${heightPercent}%`,
-                          minHeight: '8px',
-                          border: '1px solid black'
+                    <div key={idx} className="flex-1 flex flex-col items-center">
+                      <div
+                        className="w-full bg-blue-500 rounded-t transition-all duration-300 hover:bg-blue-600 relative"
+                        style={{
+                          height: `${heightPixels}px`,
+                          minHeight: '8px'
                         }}
                         title={`${day.day}: ${day.weight.toLocaleString()} lbs`}
-                      ></div>
+                      >
+                        {/* Weight number on the bar */}
+                        <div className="absolute inset-0 flex items-center justify-center text-xs text-white font-bold p-1">
+                          {day.weight}
+                        </div>
+                      </div>
                       <div className="text-xs text-gray-600 mt-1">{day.day}</div>
                     </div>
                   );
                 })}
               </div>
+
               <p className="text-xs text-gray-500 text-center mt-2">Daily total weight lifted</p>
             </div>
           </div>

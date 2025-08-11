@@ -154,8 +154,9 @@ function Logger() {
     }
     const today = new Date().toLocaleDateString();
     setSummary(`Workout saved for ${today} — ${totalSets} sets, ${totalReps} reps, ${totalVolume} lbs lifted.`);
-    // Save to localStorage by date using consistent MM/DD/YYYY format
-    const dateKey = new Date().toLocaleDateString();
+    // Save to localStorage by date using consistent YYYY-MM-DD format
+    const d = new Date();
+    const dateKey = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
     localStorage.setItem(`workout_${dateKey}`, JSON.stringify(grouped));
     alert("Workout saved! 💾 Time to go flex 💪");
   }
