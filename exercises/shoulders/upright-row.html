@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cable Fly - ShortStack Exercise Library</title>
+  <title>Upright Row - ShortStack Exercise Library</title>
   <!-- React and ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -47,41 +47,40 @@
       const [activeTab, setActiveTab] = useState('overview');
 
       const exerciseData = {
-  "name": "Cable Fly",
-  "category": "Chest",
+  "name": "Upright Row",
+  "category": "Shoulders",
   "equipment": [
-    "Cable Machine",
-    "Cable Attachments"
+    "Barbell",
+    "Weight Plates"
   ],
   "primaryMuscles": [
-    "Pectoralis Major (Chest)"
+    "Lateral Deltoids",
+    "Trapezius"
   ],
   "secondaryMuscles": [
-    "Anterior Deltoids (Front Shoulders)",
-    "Triceps"
+    "Anterior Deltoids",
+    "Biceps"
   ],
   "difficulty": "Intermediate",
   "instructions": [
-    "Stand in the center of a cable machine with cables at chest height",
-    "Grasp the cable handles with your arms extended out to the sides",
-    "Take a step forward to create tension in the cables",
-    "With a slight bend in your elbows, bring your hands together in front of your chest",
-    "Squeeze your chest muscles as you bring your hands together",
-    "Slowly return to the starting position, feeling the stretch in your chest",
+    "Stand with your feet shoulder-width apart",
+    "Hold a barbell with an overhand grip, hands close together",
+    "Pull the barbell up towards your chin",
+    "Keep your elbows higher than your wrists",
+    "Lower the barbell back down with control",
     "Repeat for the desired number of repetitions"
   ],
   "tips": [
-    "Keep your core engaged throughout the movement",
-    "Maintain a slight bend in your elbows throughout",
-    "Focus on squeezing your chest muscles, not just moving your arms",
-    "Don't let the cables pull your arms too far back",
-    "Keep your shoulders down and back"
+    "Keep the barbell close to your body",
+    "Don't let your elbows flare out too much",
+    "Focus on pulling with your shoulders",
+    "Don't raise the barbell above your chin",
+    "This exercise can be hard on the shoulders - use proper form"
   ],
   "variations": [
-    "High Cable Fly (targets upper chest)",
-    "Low Cable Fly (targets lower chest)",
-    "Single Arm Cable Fly",
-    "Cable Fly with Rotation"
+    "Dumbbell Upright Row",
+    "Cable Upright Row",
+    "Wide Grip Upright Row"
   ],
   "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
 };
@@ -109,7 +108,7 @@
           <div className="mb-6">
             <img 
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
-              alt="Cable Fly"
+              alt="Upright Row"
               className="w-full h-48 object-cover rounded-lg shadow-md"
             />
           </div>

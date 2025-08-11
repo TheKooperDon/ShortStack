@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cable Fly - ShortStack Exercise Library</title>
+  <title>Push Ups - ShortStack Exercise Library</title>
   <!-- React and ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -47,41 +47,40 @@
       const [activeTab, setActiveTab] = useState('overview');
 
       const exerciseData = {
-  "name": "Cable Fly",
+  "name": "Push Ups",
   "category": "Chest",
   "equipment": [
-    "Cable Machine",
-    "Cable Attachments"
+    "None (Bodyweight)"
   ],
   "primaryMuscles": [
     "Pectoralis Major (Chest)"
   ],
   "secondaryMuscles": [
-    "Anterior Deltoids (Front Shoulders)",
-    "Triceps"
+    "Anterior Deltoids",
+    "Triceps",
+    "Core"
   ],
-  "difficulty": "Intermediate",
+  "difficulty": "Beginner",
   "instructions": [
-    "Stand in the center of a cable machine with cables at chest height",
-    "Grasp the cable handles with your arms extended out to the sides",
-    "Take a step forward to create tension in the cables",
-    "With a slight bend in your elbows, bring your hands together in front of your chest",
-    "Squeeze your chest muscles as you bring your hands together",
-    "Slowly return to the starting position, feeling the stretch in your chest",
+    "Start in a plank position with your hands slightly wider than shoulder-width",
+    "Lower your body by bending your elbows until your chest nearly touches the floor",
+    "Keep your body in a straight line from head to heels",
+    "Push back up to the starting position",
     "Repeat for the desired number of repetitions"
   ],
   "tips": [
-    "Keep your core engaged throughout the movement",
-    "Maintain a slight bend in your elbows throughout",
-    "Focus on squeezing your chest muscles, not just moving your arms",
-    "Don't let the cables pull your arms too far back",
-    "Keep your shoulders down and back"
+    "Keep your core engaged throughout the entire movement",
+    "Don't let your hips sag or rise",
+    "Keep your neck neutral - don't look up or down",
+    "Breathe out as you push up, breathe in as you lower down",
+    "If you can't do full push-ups, start with knee push-ups"
   ],
   "variations": [
-    "High Cable Fly (targets upper chest)",
-    "Low Cable Fly (targets lower chest)",
-    "Single Arm Cable Fly",
-    "Cable Fly with Rotation"
+    "Knee Push Ups",
+    "Wide Grip Push Ups",
+    "Diamond Push Ups",
+    "Decline Push Ups",
+    "Incline Push Ups"
   ],
   "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
 };
@@ -109,7 +108,7 @@
           <div className="mb-6">
             <img 
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
-              alt="Cable Fly"
+              alt="Push Ups"
               className="w-full h-48 object-cover rounded-lg shadow-md"
             />
           </div>

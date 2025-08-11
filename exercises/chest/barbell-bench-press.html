@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cable Fly - ShortStack Exercise Library</title>
+  <title>Barbell Bench Press - ShortStack Exercise Library</title>
   <!-- React and ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -47,41 +47,42 @@
       const [activeTab, setActiveTab] = useState('overview');
 
       const exerciseData = {
-  "name": "Cable Fly",
+  "name": "Barbell Bench Press",
   "category": "Chest",
   "equipment": [
-    "Cable Machine",
-    "Cable Attachments"
+    "Barbell",
+    "Weight Plates",
+    "Bench"
   ],
   "primaryMuscles": [
     "Pectoralis Major (Chest)"
   ],
   "secondaryMuscles": [
-    "Anterior Deltoids (Front Shoulders)",
-    "Triceps"
+    "Anterior Deltoids",
+    "Triceps",
+    "Serratus Anterior"
   ],
   "difficulty": "Intermediate",
   "instructions": [
-    "Stand in the center of a cable machine with cables at chest height",
-    "Grasp the cable handles with your arms extended out to the sides",
-    "Take a step forward to create tension in the cables",
-    "With a slight bend in your elbows, bring your hands together in front of your chest",
-    "Squeeze your chest muscles as you bring your hands together",
-    "Slowly return to the starting position, feeling the stretch in your chest",
+    "Lie on a flat bench with your feet flat on the floor",
+    "Grip the barbell slightly wider than shoulder-width",
+    "Unrack the barbell and lower it to your chest",
+    "Press the barbell back up to the starting position",
+    "Keep your elbows at about a 45-degree angle to your body",
     "Repeat for the desired number of repetitions"
   ],
   "tips": [
-    "Keep your core engaged throughout the movement",
-    "Maintain a slight bend in your elbows throughout",
-    "Focus on squeezing your chest muscles, not just moving your arms",
-    "Don't let the cables pull your arms too far back",
-    "Keep your shoulders down and back"
+    "Keep your core engaged and maintain a natural arch in your lower back",
+    "Don't let your elbows flare out too much",
+    "Control the movement on both the press and the descent",
+    "Keep your shoulders down and back throughout the movement",
+    "Breathe out as you press up, breathe in as you lower down"
   ],
   "variations": [
-    "High Cable Fly (targets upper chest)",
-    "Low Cable Fly (targets lower chest)",
-    "Single Arm Cable Fly",
-    "Cable Fly with Rotation"
+    "Incline Barbell Bench Press",
+    "Decline Barbell Bench Press",
+    "Close Grip Bench Press",
+    "Wide Grip Bench Press"
   ],
   "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
 };
@@ -109,7 +110,7 @@
           <div className="mb-6">
             <img 
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" 
-              alt="Cable Fly"
+              alt="Barbell Bench Press"
               className="w-full h-48 object-cover rounded-lg shadow-md"
             />
           </div>

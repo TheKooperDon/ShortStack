@@ -191,7 +191,13 @@ function ExerciseLibrary() {
                   {groupedExercises[group].slice(0, 3).map(exercise => (
                     <div key={exercise} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                       <span className="font-medium text-gray-800">{exercise}</span>
-                      <button className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition">
+                      <button 
+                        onClick={() => {
+                          const exerciseName = exercise.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
+                          window.location.href = `exercises/${group.toLowerCase()}/${exerciseName}.html`;
+                        }}
+                        className="px-2 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition"
+                      >
                         View
                       </button>
                     </div>
@@ -218,8 +224,21 @@ function ExerciseLibrary() {
           <div className="grid grid-cols-1 gap-3">
             {filteredExercises.map(exercise => (
               <div key={exercise} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition">
-                <h4 className="font-semibold text-gray-800">{exercise}</h4>
-                <p className="text-sm text-gray-600">{exerciseMap[exercise]}</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-semibold text-gray-800">{exercise}</h4>
+                    <p className="text-sm text-gray-600">{exerciseMap[exercise]}</p>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      const exerciseName = exercise.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '');
+                      window.location.href = `exercises/${exerciseMap[exercise].toLowerCase()}/${exerciseName}.html`;
+                    }}
+                    className="px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition"
+                  >
+                    View Details
+                  </button>
+                </div>
               </div>
             ))}
           </div>
