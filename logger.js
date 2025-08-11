@@ -14,81 +14,64 @@ let setCount = 0;
 // 🧠 Exercise Map: All Exercises Grouped by Category
 // ===========================
 const exerciseMap = {
-  // Chest
+  // CHEST EXERCISES
   "Cable Fly": "Chest",
-  "Cable Incline Chest Press": "Chest",
-  "Chest Press Machine": "Chest",
-  "Decline Bench Press": "Chest",
+  "Barbell Bench Press": "Chest",
   "Dumbbell Bench Press": "Chest",
-  "Dumbbell Chest Fly": "Chest",
-  "Incline Bench Press": "Chest",
-  "Incline Chest Press": "Chest",
-  "Machine Incline Chest Press": "Chest",
+  "Incline Barbell Bench Press": "Chest",
+  "Decline Barbell Bench Press": "Chest",
+  "Dumbbell Fly": "Chest",
   "Push Ups": "Chest",
-  "Seated Bench Machine": "Chest",
+  "Diamond Push Ups": "Chest",
+  "Chest Press Machine": "Chest",
+  "Pec Deck Machine": "Chest",
+  "Dips": "Chest",
 
-  // Back
+  // BACK EXERCISES
   "Barbell Row": "Back",
-  "Cable Reverse Fly": "Back",
-  "Cable Row (Wide Grip)": "Back",
-  "Chin Ups": "Back",
-  "Lat Pull Down Close Grip": "Back",
-  "Lat Pull Down Wide Grip": "Back",
   "Pull Ups": "Back",
-  "Row Cable Close Grip": "Back",
-  "Seated Row Machine": "Back",
+  "Chin Ups": "Back",
+  "Lat Pulldown": "Back",
   "T-Bar Row": "Back",
+  "Seated Cable Row": "Back",
+  "Single Arm Dumbbell Row": "Back",
+  "Face Pulls": "Back",
+  "Deadlift": "Back",
+  "Romanian Deadlift": "Back",
 
-  // Shoulders
-  "Arnold Press": "Shoulders",
-  "Cable Lateral Raise": "Shoulders",
-  "Dumbbell Shrugs": "Shoulders",
-  "Front Raise": "Shoulders",
-  "Lateral Raise": "Shoulders",
-  "Pike Push Ups": "Shoulders",
-  "Rear Delt Fly": "Shoulders",
+  // SHOULDER EXERCISES
   "Shoulder Press": "Shoulders",
+  "Lateral Raise": "Shoulders",
+  "Front Raise": "Shoulders",
+  "Rear Delt Fly": "Shoulders",
+  "Arnold Press": "Shoulders",
+  "Upright Row": "Shoulders",
 
-  // Arms
-  "Cable Reverse Curls": "Arms",
-  "Cable Rope Overhead Tricep": "Arms",
-  "Cable Single Arm Curls": "Arms",
-  "Close Grip Push Ups": "Arms",
-  "Dips": "Arms",
+  // ARM EXERCISES
   "Hammer Curls": "Arms",
-  "Incline Dumbbell Curls": "Arms",
-  "Over Head Bar Tricep Extension": "Arms",
-  "Preacher Curl Machine": "Arms",
-  "Rope Bicep Curls": "Arms",
-  "Single Arm Tricep": "Arms",
-  "Tricep Rope Pushdown": "Arms",
-  "Z Bar Curl": "Arms",
+  "Barbell Curls": "Arms",
+  "Dumbbell Curls": "Arms",
+  "Preacher Curls": "Arms",
+  "Dips": "Arms",
+  "Tricep Pushdowns": "Arms",
+  "Skull Crushers": "Arms",
 
-  // Legs
-  "Barbell Box Squat": "Legs",
-  "Barbell Front Squat": "Legs",
-  "Barbell Glute Bridge": "Legs",
-  "Barbell RDL": "Legs",
-  "Cable Kick Backs": "Legs",
-  "Cable Lateral Raises": "Legs",
-  "Dumbbell Bulgarian Split Squat": "Legs",
-  "Dumbbell Hamstring Curls": "Legs",
-  "Dumbbell RDLs": "Legs",
-  "Dumbbell Step Ups": "Legs",
-  "Dumbbell Walking Lunges": "Legs",
-  "Glute Kick Backs": "Legs",
+  // LEG EXERCISES
+  "Barbell Squat": "Legs",
   "Goblet Squat": "Legs",
-  "Leg Press Machine": "Legs",
-  "Resistance Band Glute Bridge": "Legs",
-  "Resistance Band Kickbacks": "Legs",
-  "Resistance Band Side Steps": "Legs",
-  "Smith Machine Squat": "Legs",
-  "Step Ups": "Legs",
+  "Leg Press": "Legs",
+  "Romanian Deadlift": "Legs",
+  "Leg Extensions": "Legs",
+  "Leg Curls": "Legs",
+  "Calf Raises": "Legs",
 
-  // Core
-  "Cable Woodchoppers": "Core",
-  "Hanging Leg Raises": "Core",
+  // CORE EXERCISES
   "Plank": "Core",
+  "Crunches": "Core",
+  "Russian Twists": "Core",
+  "Hanging Leg Raises": "Core",
+  "Mountain Climbers": "Core",
+  "Cable Woodchoppers": "Core"
 };
 
 document.addEventListener("DOMContentLoaded", () => {

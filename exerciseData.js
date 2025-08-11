@@ -1434,6 +1434,40 @@ const exerciseDatabase = {
       "Mountain Climbers with Push Up"
     ],
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
+  },
+
+  "Cable Woodchoppers": {
+    name: "Cable Woodchoppers",
+    category: "Core",
+    equipment: ["Cable Machine", "Rope Attachment"],
+    primaryMuscles: ["Obliques", "Rectus Abdominis"],
+    secondaryMuscles: ["Shoulders", "Hip Flexors"],
+    difficulty: "Intermediate",
+    instructions: [
+      "Set the cable machine to shoulder height",
+      "Attach a rope to the cable",
+      "Stand sideways to the machine with your feet shoulder-width apart",
+      "Grab the rope with both hands",
+      "Rotate your torso away from the machine",
+      "Pull the rope across your body in a chopping motion",
+      "Rotate your hips and shoulders together",
+      "Return to the starting position with control",
+      "Repeat for the desired number of repetitions, then switch sides"
+    ],
+    tips: [
+      "Keep your core engaged throughout the movement",
+      "Rotate from your core, not just your arms",
+      "Keep your feet planted and stable",
+      "Control the movement on both the pull and return",
+      "This exercise targets your obliques and rotational strength"
+    ],
+    variations: [
+      "High to Low Woodchoppers",
+      "Low to High Woodchoppers",
+      "Medicine Ball Woodchoppers",
+      "Dumbbell Woodchoppers"
+    ],
+    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
   }
 };
 

@@ -75,7 +75,8 @@ const exerciseMap = {
   "Crunches": "Core",
   "Russian Twists": "Core",
   "Hanging Leg Raises": "Core",
-  "Mountain Climbers": "Core"
+  "Mountain Climbers": "Core",
+  "Cable Woodchoppers": "Core"
 };
 
 // Helper to group exercises by muscle group
