@@ -27,40 +27,34 @@ function Profile() {
   const [currentWeek, setCurrentWeek] = useState(new Date());
 
   useEffect(() => {
-    // Get logged-in user
-    let user = null;
-    try {
-      user = JSON.parse(localStorage.getItem("currentUser"));
-    } catch (e) {}
-    setFirstName(user && user.firstName ? user.firstName : "");
+    // Get user name
+    const userName = localStorage.getItem("userName") || "";
+    setFirstName(userName);
 
-    if (user && user.firstName) {
-      const keys = Object.keys(localStorage).filter(key => key.startsWith("workout_"));
-      keys.sort().reverse();
+    // Load all workouts
+    const keys = Object.keys(localStorage).filter(key => key.startsWith("workout_"));
+    keys.sort().reverse();
+    
+    const data = keys.map(key => {
+      const date = key.replace("workout_", "");
+      const workoutData = JSON.parse(localStorage.getItem(key));
       
-      const data = keys.map(key => {
-        const date = key.replace("workout_", "");
-        const workoutData = JSON.parse(localStorage.getItem(key));
+      // Convert any old format to YYYY-MM-DD for internal storage
+      let newDate = date;
+      if (!date.includes('-')) {
+        // Convert MM/DD/YYYY to YYYY-MM-DD
+        const [month, day, year] = date.split('/');
+        newDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
         
-        // Convert any old format to YYYY-MM-DD for internal storage
-        let newDate = date;
-        if (!date.includes('-')) {
-          // Convert MM/DD/YYYY to YYYY-MM-DD
-          const [month, day, year] = date.split('/');
-          newDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-          
-          // ✅ Migrate key in localStorage
-          localStorage.removeItem(key);
-          localStorage.setItem(`workout_${newDate}`, JSON.stringify(workoutData));
-        }
-        
-        return { date: newDate, workoutData };
-      });
+        // ✅ Migrate key in localStorage
+        localStorage.removeItem(key);
+        localStorage.setItem(`workout_${newDate}`, JSON.stringify(workoutData));
+      }
       
-      setWorkouts(data);
-    } else {
-      setWorkouts([]);
-    }
+      return { date: newDate, workoutData };
+    });
+    
+    setWorkouts(data);
   }, []);
  
   // Generate calendar data for the current month

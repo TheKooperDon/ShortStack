@@ -35,10 +35,13 @@
         <li>[ ] Clear all saved workout data</li>
       </ul>
       <p class="text-gray-500">These features will be added soon as development continues!</p>
-      <button id="logoutBtn" class="mt-6 px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Log Out</button>
       <div class="mt-4 flex flex-col items-center">
         <span class="text-xs text-gray-500 mb-1">Danger zone: This will delete all your workout logs.</span>
         <button id="clearDataBtn" class="px-3 py-1 bg-gray-200 text-red-700 rounded hover:bg-red-300 text-sm border border-red-300">Clear All Workout Data</button>
+      </div>
+      <div class="mt-4 flex flex-col items-center">
+        <span class="text-xs text-gray-500 mb-1">Reset your profile name</span>
+        <button id="resetNameBtn" class="px-3 py-1 bg-gray-200 text-blue-700 rounded hover:bg-blue-300 text-sm border border-blue-300">Change Name</button>
       </div>
     </main>
 
@@ -47,7 +50,7 @@
         <a href="about.html" class="hover:underline">About</a>
         <a href="settings.html" class="hover:underline">Settings</a>
         <a href="export.html" class="hover:underline">Export</a>
-        <a href="login.html" class="hover:underline">Login</a>
+
         <a href="testingFile.html" class="hover:underline">Testing</a>
       </nav>
       <p>&copy; 2025 Short Stack. Built with reps, sets, and love.</p>
@@ -55,13 +58,6 @@
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var btn = document.getElementById('logoutBtn');
-      if (btn) {
-        btn.addEventListener('click', function() {
-          localStorage.removeItem('currentUser');
-          window.location.href = 'login.html';
-        });
-      }
       var clearBtn = document.getElementById('clearDataBtn');
       if (clearBtn) {
         clearBtn.addEventListener('click', function() {
@@ -70,6 +66,16 @@
               .filter(function(key) { return key.startsWith('workout_'); })
               .forEach(function(key) { localStorage.removeItem(key); });
             alert('All workout data cleared.');
+          }
+        });
+      }
+      
+      var resetNameBtn = document.getElementById('resetNameBtn');
+      if (resetNameBtn) {
+        resetNameBtn.addEventListener('click', function() {
+          if (window.confirm('This will reset your name. You\'ll need to enter it again on the home page.')) {
+            localStorage.removeItem('userName');
+            window.location.href = 'index.html';
           }
         });
       }

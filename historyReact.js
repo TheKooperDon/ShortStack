@@ -8,37 +8,31 @@ function WorkoutHistory() {
   const [editData, setEditData] = useState(null);
 
   useEffect(() => {
-    // Get logged-in user
-    let user = null;
-    try {
-      user = JSON.parse(localStorage.getItem("currentUser"));
-    } catch (e) {}
-    setFirstName(user && user.firstName ? user.firstName : "");
+    // Get user name
+    const userName = localStorage.getItem("userName") || "";
+    setFirstName(userName);
 
-    if (user && user.firstName) {
-      const keys = Object.keys(localStorage).filter(key => key.startsWith("workout_"));
-      keys.sort().reverse();
-      const data = keys.map(key => {
-        const date = key.replace("workout_", "");
-        const workoutData = JSON.parse(localStorage.getItem(key));
+    // Load all workouts
+    const keys = Object.keys(localStorage).filter(key => key.startsWith("workout_"));
+    keys.sort().reverse();
+    const data = keys.map(key => {
+      const date = key.replace("workout_", "");
+      const workoutData = JSON.parse(localStorage.getItem(key));
+      
+      // Convert old date format (YYYY-MM-DD) to new format (MM/DD/YYYY)
+      let newDate = date;
+      if (date.includes('-')) {
+        const [year, month, day] = date.split('-');
+        newDate = `${month}/${day}/${year}`;
         
-        // Convert old date format (YYYY-MM-DD) to new format (MM/DD/YYYY)
-        let newDate = date;
-        if (date.includes('-')) {
-          const [year, month, day] = date.split('-');
-          newDate = `${month}/${day}/${year}`;
-          
-          // Update localStorage with new key
-          localStorage.removeItem(key);
-          localStorage.setItem(`workout_${newDate}`, JSON.stringify(workoutData));
-        }
-        
-        return { date: newDate, workoutData };
-      });
-      setWorkouts(data);
-    } else {
-      setWorkouts([]);
-    }
+        // Update localStorage with new key
+        localStorage.removeItem(key);
+        localStorage.setItem(`workout_${newDate}`, JSON.stringify(workoutData));
+      }
+      
+      return { date: newDate, workoutData };
+    });
+    setWorkouts(data);
   }, []);
 
   // Add exerciseMap for workout type lookup
