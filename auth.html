@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Tailwind CSS CDN (for development only) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Short Stack - Sign Up / Log In</title>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center text-[#222] font-sans">
+  <div class="w-full max-w-[430px] min-h-[90vh] bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col">
+    <header class="bg-gray-900 text-white p-4 text-center">
+      <h1 class="text-3xl font-bold">Short Stack</h1>
+      <nav class="flex justify-center gap-6 mt-2 flex-wrap">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="logger.html" class="hover:underline">Log Workout</a>
+        <a href="profile.html" class="hover:underline">Profile</a>
+        <a href="library.html" class="hover:underline">Exercises</a>
+      </nav>
+    </header>
+    <main class="flex-1 p-6 flex flex-col justify-center items-center text-center gap-8">
+      <section class="w-full max-w-xs bg-gray-50 rounded-lg p-4 shadow-inner mb-2">
+        <h2 class="text-xl font-semibold mb-2">New to Short Stack?</h2>
+        <button class="w-full flex items-center justify-center gap-2 bg-black text-white py-2 rounded-lg font-semibold mb-2 hover:bg-gray-800 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16.365 1.43c0 1.14-.93 2.07-2.07 2.07-1.14 0-2.07-.93-2.07-2.07C12.225.29 13.155-.64 14.295-.64c1.14 0 2.07.93 2.07 2.07zm-2.07 3.6c-2.07 0-3.75 1.68-3.75 3.75v.45h7.5v-.45c0-2.07-1.68-3.75-3.75-3.75z"/></svg>
+          Sign up with Apple
+        </button>
+        <button class="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-800 py-2 rounded-lg font-semibold mb-2 hover:bg-gray-100 transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="w-5 h-5" />
+          Sign up with Google
+        </button>
+        <a href="signup.html" class="block mt-2 text-blue-600 underline text-sm">Or create an account with email</a>
+      </section>
+      <div class="flex items-center w-full max-w-xs my-2">
+        <hr class="flex-1 border-gray-300" />
+        <span class="mx-2 text-gray-400 text-sm">or</span>
+        <hr class="flex-1 border-gray-300" />
+      </div>
+      <section class="w-full max-w-xs bg-gray-50 rounded-lg p-4 shadow-inner mt-2">
+        <h2 class="text-xl font-semibold mb-2">Already have an account?</h2>
+        <button class="w-full flex items-center justify-center gap-2 bg-black text-white py-2 rounded-lg font-semibold mb-2 hover:bg-gray-800 transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16.365 1.43c0 1.14-.93 2.07-2.07 2.07-1.14 0-2.07-.93-2.07-2.07C12.225.29 13.155-.64 14.295-.64c1.14 0 2.07.93 2.07 2.07zm-2.07 3.6c-2.07 0-3.75 1.68-3.75 3.75v.45h7.5v-.45c0-2.07-1.68-3.75-3.75-3.75z"/></svg>
+          Log in with Apple
+        </button>
+        <button class="w-full flex items-center justify-center gap-2 bg-white border border-gray-300 text-gray-800 py-2 rounded-lg font-semibold mb-2 hover:bg-gray-100 transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" class="w-5 h-5" />
+          Log in with Google
+        </button>
+        <a href="login.html" class="block mt-2 text-blue-600 underline text-sm">Or log in with email</a>
+      </section>
+    </main>
+    <footer class="bg-gray-900 text-white text-center p-4">
+      <nav class="flex justify-center gap-4 mb-2 flex-wrap">
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="settings.html" class="hover:underline">Settings</a>
+        <a href="export.html" class="hover:underline">Export</a>
+        <a href="login.html" class="hover:underline">Login</a>
+        <a href="testingFile.html" class="hover:underline">Testing</a>
+      </nav>
+      <p>&copy; 2025 Short Stack. Built with reps, sets, and love.</p>
+    </footer>
+  </div>
+</body>
+</html>

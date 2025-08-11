@@ -1,0 +1,247 @@
+/* ===================================================
+   shortstack.css — Global styling for Short Stack app
+   Applies to all pages unless noted otherwise
+=================================================== */
+
+/* ----- GLOBAL BODY SETTINGS ----- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  max-width: 430px; /* Targeting iPhone 16 screen size */
+  margin-inline: auto;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* ----- HEADER & FOOTER STYLING ----- */
+header, footer {
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* ----- NAVIGATION LINKS ----- */
+nav {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0.5rem;
+  font-weight: bold;
+}
+
+/* ----- MAIN LAYOUT (ALL PAGES) ----- */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* ----- FORM CONTAINER ----- */
+form {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ----- FOOTER LINKS ----- */
+footer nav {
+  justify-content: center;
+}
+
+footer a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ===================== START OF INDEX ===================== */
+.intro-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2rem 0 1.5rem 0;
+  font-weight: 500;
+}
+
+.next-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.next-btn {
+  background: #2d6cdf;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75em 2em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.next-btn:hover {
+  background: #1a417a;
+}
+/* ====================== END OF INDEX ====================== */
+
+/* ===================== START OF LOGGER ==================== */
+.logger-root {
+  width: 100%;
+}
+
+.logger-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.quick-pick-btn {
+  margin-top: 8px;
+}
+
+.quick-pad-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.summary-msg {
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ----- FORM ROWS: INPUT BLOCKS STACKED ----- */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+label {
+  margin-bottom: 0.25rem;
+}
+
+/* ----- MUSCLE GROUP BUTTON WRAP ----- */
+.button-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.button-wrap button {
+  flex: 1 1 30%;
+  min-width: 90px;
+}
+
+/* ----- INPUT GROUPS (WEIGHT / REPS) ----- */
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input-group input {
+  flex: 1;
+  max-width: 100px;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+}
+
+/* ----- BUTTON ROW: ADD / REPEAT ----- */
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.button-row button {
+  flex: 1;
+  max-width: 150px;
+}
+
+/*Log Preview */
+
+#logPreview {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#logTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#logTable th,
+#logTable td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#logTable th {
+  background-color: #f0f0f0;
+}
+/* end of button rows add and repeat*/
+
+/* Quick pad styling */
+
+/*
+.pad-toggle {
+  margin-top: 0.5rem;
+  background-color: #ccc;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quick-pad {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pad-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pad-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+*/
+/* ====================== END OF LOGGER ===================== */
